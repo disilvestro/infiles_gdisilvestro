@@ -1,12 +1,10 @@
-#######################################################
-ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B
-ssaraopt.startDate                  = 20200111
-ssaraopt.endDate                    = 20210101
-ssaraopt.relativeOrbit              = 55
-##################
-topsStack.boundingBox                = -8.75 -7.8 115.0 115.7
+ssaraopt.platform                   = SENTINEL-1A,SENTINEL-1B                                                                             
+ssaraopt.startDate                  = 20140101
+ssaraopt.relativeOrbit              = 55                                                                                                 
+####################
+topsStack.boundingBox                = 12.2 12.6 -88.1 -85.0
 
-topsStack.subswath                   = 3                                               # '1 2'                                           
+topsStack.subswath                   = 1                                               # '1 2'                                           
 topsStack.numConnections             = 3                                                 # comment                                         
 topsStack.azimuthLooks               = 4                                                 # comment                                         
 topsStack.rangeLooks                 = 16                                                # comment                                         
@@ -15,7 +13,7 @@ topsStack.unwMethod                  = snaphu                                   
 topsStack.coregistration             = auto                                              # [NESD geometry], auto for NESD                  
 ####################
 mintpy.load.autoPath                 = yes
-mintpy.troposphericDelay.method      = auto                                #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+mintpy.troposphericDelay.method      = no                                #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 mintpy.networkInversion.parallel     = no                                                #[yes / no], auto for no, parallel processing    
 mintpy.save.hdfEos5                  = yes                                               # [yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 mintpy.save.hdfEos5.subset           = yes     #[yes / no], auto for no, put subset range info   in output filenam
@@ -28,11 +26,11 @@ mintpy.networkInversion.minTempCoh   = auto
 
 ####################
 minsar.miaplpyDir.addition           = date          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-mintpy.subset.lalo                   = -8.536:-8.481,115.118:115.063    #[S:N,W:E / no], auto for no
-miaplpy.subset.lalo                  = -8.53669:12.454,115.11852:-86.496    #[S:N,W:E / no], auto for no
+mintpy.subset.lalo                   = 12.399:12.454,-86.581:-86.496    #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                  = 12.399:12.454,-86.581:-86.496    #[S:N,W:E / no], auto for no
 miaplpy.load.startDate               = auto #  20200101
 miaplpy.load.endDate                 = auto
-mintpy.geocode.laloStep              = 0.0005,0.0005
+mintpy.geocode.laloStep              = 0.0005,0.0005 
 mintpy.reference.minCoherence        = 0.5   #[0.0-1.0], auto for 0.85, minimum coherence for auto method
 
 miaplpy.interferograms.delaunayTempThresh = 90     # [days] temporal threshold for delaunay triangles, auto for 60
@@ -46,5 +44,5 @@ miaplpy.inversion.rangeWindow        = 24   # range window size for searching SH
 miaplpy.inversion.azimuthWindow      = 7   # azimuth window size for searching SHPs, auto for 15
 miaplpy.timeseries.tempCohType       = full  # [full, average], auto for full.
 miaplpy.timeseries.minTempCoh        = 0.70     # auto for 0.5
-############################################
-insarmaps_flag                       = False
+#############################################
+insarmaps_flag                       = False                                                                                                

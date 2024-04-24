@@ -3,8 +3,8 @@ cleanopt                          = 0   # [ 0 / 1 / 2 / 3 / 4]   0,1: none 2: ke
 processor                         = isce
 ssaraopt.platform                 = SENTINEL-1A,SENTINEL-1B
 ssaraopt.relativeOrbit            = 156
-ssaraopt.startDate                = 20160101
-ssaraopt.endDate                  = 20231014
+ssaraopt.startDate                = 20170101
+ssaraopt.endDate                  = 20240330
 hazard_products_flag              = False
 insarmaps_flag                     = True
 ######################################################

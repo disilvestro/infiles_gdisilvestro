@@ -4,7 +4,6 @@ processor                         = isce
 ssaraopt.platform                 = SENTINEL-1A,SENTINEL-1B
 ssaraopt.relativeOrbit            = 98
 ssaraopt.startDate                = 20170101
-ssaraopt.endDate                  = 20231014
 hazard_products_flag              = False
 insarmaps_flag                     = True
 ######################################################
