@@ -2,15 +2,14 @@
 cleanopt                          = 0   # [ 0 / 1 / 2 / 3 / 4]   0,1: none 2: keep merged,geom_master,SLC 3: keep MINTPY 4: everything
 processor                         = isce
 ssaraopt.platform                 = SENTINEL-1A,SENTINEL-1B
-ssaraopt.relativeOrbit            = 106
+ssaraopt.relativeOrbit            = 40
 ssaraopt.startDate                = 20170101
-ssaraopt.endDate                  = 20200101
 hazard_products_flag              = False
 insarmaps_flag                     = True
 ######################################################
-topsStack.boundingBox             = -0.52 -0.27 -91.69 -91.41     # -1 0.15 -91.6 -90.9
-topsStack.subswath                = 2 3 # '1 2'
-topsStack.referenceDate              = 20180718
+topsStack.excludeDates            = 20211013
+topsStack.boundingBox             = -0.39 -0.32 -78.66 -78.59    # -1 0.15 -91.6 -90.9
+topsStack.subswath                = 1 # '1 2'
 topsStack.numConnections          = 4    # comment
 topsStack.azimuthLooks            = 6    # comment
 topsStack.rangeLooks              = 24   # comment
@@ -21,12 +20,12 @@ topsStack.coregistration          = auto  # [NESD geometry], auto for NESD
 
 ######################################################
 mintpy.load.autoPath              = yes
-mintpy.subset.lalo                  = -0.52:-0.27,-91.69:-91.41
+mintpy.subset.lalo                  = -0.39:-0.32,-78.66:-78.59
 mintpy.compute.cluster            = local #[local / slurm / pbs / lsf / none], auto for none, cluster type
 mintpy.compute.numWorker          = 30 #[int > 1 / all], auto for 4 (local) or 40 (non-local), num of workers
-#mintpy.reference.lalo             = -0.54,-91.69     # S of SN
+#mintpy.reference.lalo             = -0.39,-78.66     # S of SN
 mintpy.networkInversion.parallel  = yes  #[yes / no], auto for no, parallel processing using dask
-mintpy.troposphericDelay.method   = auto   # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+mintpy.troposphericDelay.method   = no   # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 mintpy.geocode.laloStep             = 0.0008,0.0008                 #[-0.000555556,0.000555556 / None], auto for None
 mintpy.save.hdfEos5               = yes   #[yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 mintpy.save.hdfEos5.update        = yes   #[yes / no], auto for no, put XXXXXXXX as endDate in output filename
@@ -34,7 +33,7 @@ mintpy.save.hdfEos5.subset        = auto     #[yes / no], auto for no, put subse
 mintpy.save.kmz                   = yes  #[yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
 ####################
 minsar.miaplpyDir.addition           = date          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-miaplpy.subset.lalo                  = -0.54:-0.25,-91.61:-91.45    #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                  = -0.39:-0.32,-78.66:-78.59    #[S:N,W:E / no], auto for no
 miaplpy.load.startDate               = auto #  20200101
 miaplpy.load.endDate                 = auto
 mintpy.geocode.laloStep              = 0.0005,0.0005
@@ -51,3 +50,7 @@ miaplpy.timeseries.tempCohType       = full  # [full, average], auto for ful
 miaplpy.timeseries.minTempCoh        = 0.70     # auto for 0.5
 #############################################
 insarmaps_flag                       = False
+minsar.upload_flag              = True    # [True / False ], upload to jetstream (Default: False)
+minsar.insarmaps_flag           = False    # [True / False ], ingest into insarmaps (Default: False)
+minsar.insarmaps_dataset        = DS       # [PS,DS,PSDS,geo,all], miaplpy dataset to ingest (Default: geo) (MintPy is always geo)
+

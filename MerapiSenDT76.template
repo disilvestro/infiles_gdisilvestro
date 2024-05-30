@@ -3,16 +3,15 @@ cleanopt                          = 0   # [ 0 / 1 / 2 / 3 / 4]   0,1: none 2: ke
 processor                         = isce
 ssaraopt.platform                 = SENTINEL-1A,SENTINEL-1B
 ssaraopt.relativeOrbit            = 76
-ssaraopt.startDate                = 20200601
-ssaraopt.endDate                  = 20210601
+ssaraopt.startDate                = 20170101
 hazard_products_flag              = False
 insarmaps_flag                     = True
 ######################################################
 topsStack.boundingBox             = -7.59 -7.51 110.4 110.49    # -1 0.15 -91.6 -90.9
 topsStack.subswath                = 1 2 # '1 2'
 topsStack.numConnections          = 4    # comment
-topsStack.azimuthLooks            = 6    # comment
-topsStack.rangeLooks              = 24   # comment
+topsStack.azimuthLooks            = 3    # comment
+topsStack.rangeLooks              = 15   # comment
 topsStack.filtStrength            = 0.2  # comment
 topsStack.unwMethod               = snaphu  # comment
 topsStack.coregistration          = auto  # [NESD geometry], auto for NESD
@@ -36,11 +35,12 @@ minsar.miaplpyDir.addition           = date          #[name / lalo / n
 miaplpy.subset.lalo                  = -7.59:-7.51,110.4:110.49    #[S:N,W:E / no], auto for no
 miaplpy.load.startDate               = auto #  20200101
 miaplpy.load.endDate                 = auto
-mintpy.geocode.laloStep              = 0.0005,0.0005
+mintpy.geocode.laloStep              = 0.0002,0.0002
 mintpy.reference.minCoherence        = 0.5   #[0.0-1.0], auto for 0.85, minimum coherence for auto method
 miaplpy.interferograms.delaunayTempThresh = 90     # [days] temporal threshold for delaunay triangles, auto for 60
 miaplpy.interferograms.networkType  = single_reference # network
-#miaplpy.interferograms.networkType  = delaunay # network
+miaplpy.interferograms.networkType  = delaunay # network
+minsar.miaplpyDir.addition           = date
 #############################################
 miaplpy.load.processor  = isce
 miaplpy.multiprocessing.numProcessor = 40
@@ -50,4 +50,6 @@ miaplpy.timeseries.tempCohType       = full  # [full, average], auto for ful
 miaplpy.timeseries.minTempCoh        = 0.70     # auto for 0.5
 #############################################
 insarmaps_flag                       = False
-
+minsar.upload_flag              = False    # [True / False ], upload to jetstream (Default: False)
+minsar.insarmaps_flag           = False    # [True / False ], ingest into insarmaps (Default: False)
+minsar.insarmaps_dataset        = all       # [PS,DS,PSDS,geo,all], miaplpy dataset to ingest (Default: geo) (MintPy is always geo)

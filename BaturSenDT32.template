@@ -4,7 +4,6 @@ processor                         = isce
 ssaraopt.platform                 = SENTINEL-1A,SENTINEL-1B
 ssaraopt.relativeOrbit            = 32
 ssaraopt.startDate                = 20200101
-ssaraopt.endDate                  = 20240330
 hazard_products_flag              = False
 insarmaps_flag                     = True
 ######################################################
@@ -50,4 +49,6 @@ miaplpy.timeseries.tempCohType       = full  # [full, average], auto for ful
 miaplpy.timeseries.minTempCoh        = 0.70     # auto for 0.5
 #############################################
 insarmaps_flag                       = False
-
+minsar.upload_flag              = True    # [True / False ], upload to jetstream (Default: False)
+minsar.insarmaps_flag           = False    # [True / False ], ingest into insarmaps (Default: False)
+minsar.insarmaps_dataset        = DS       # [PS,DS,PSDS,geo,all], miaplpy dataset to ingest (Default: geo) (MintPy is always geo)
