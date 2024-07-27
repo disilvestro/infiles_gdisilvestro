@@ -35,11 +35,11 @@ minsar.miaplpyDir.addition           = date          #[name / lalo / n
 miaplpy.subset.lalo                  = 0.79:0.84,-77.98:-77.90    #[S:N,W:E / no], auto for no
 miaplpy.load.startDate               = auto #  20200101
 miaplpy.load.endDate                 = auto
-mintpy.geocode.laloStep              = 0.0005,0.0005
+mintpy.geocode.laloStep              = 0.0002,0.0002
 mintpy.reference.minCoherence        = 0.5   #[0.0-1.0], auto for 0.85, minimum coherence for auto method
 miaplpy.interferograms.delaunayTempThresh = 90     # [days] temporal threshold for delaunay triangles, auto for 60
 miaplpy.interferograms.networkType  = single_reference # network
-miaplpy.interferograms.networkType  = delaunay # network
+#miaplpy.interferograms.networkType  = delaunay # network
 #############################################
 miaplpy.load.processor  = isce
 miaplpy.multiprocessing.numProcessor = 40
@@ -51,5 +51,5 @@ miaplpy.timeseries.minTempCoh        = 0.70     # auto for 0.5
 insarmaps_flag                       = False
 minsar.upload_flag              = True    # [True / False ], upload to jetstream (Default: False)
 minsar.insarmaps_flag           = False    # [True / False ], ingest into insarmaps (Default: False)
-minsar.insarmaps_dataset        = PSDS       # [PS,DS,PSDS,geo,all], miaplpy dataset to ingest (Default: geo) (MintPy is always geo)
+minsar.insarmaps_dataset        = DS       # [PS,DS,PSDS,geo,all], miaplpy dataset to ingest (Default: geo) (MintPy is always geo)
 
