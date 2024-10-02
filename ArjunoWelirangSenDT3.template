@@ -4,7 +4,7 @@ processor                         = isce
 ssaraopt.platform                 = SENTINEL-1A,SENTINEL-1B
 ssaraopt.relativeOrbit            = 3
 ssaraopt.startDate                = 20200101
-ssaraopt.endDate                  = 20240330
+#ssaraopt.endDate                  = 20240330
 hazard_products_flag              = False
 insarmaps_flag                     = True
 ######################################################
@@ -39,14 +39,17 @@ miaplpy.load.endDate                 = auto
 mintpy.geocode.laloStep              = 0.0005,0.0005
 mintpy.reference.minCoherence        = 0.5   #[0.0-1.0], auto for 0.85, minimum coherence for auto method
 miaplpy.interferograms.delaunayTempThresh = 90     # [days] temporal threshold for delaunay triangles, auto for 60
+miaplpy.interferograms.delaunayTempThresh      = 220     # [days] temporal threshold for delaunay triangles, auto for 120
+miaplpy.interferograms.delaunayPerpThresh      = 200     # [meters] Perp baseline threshold for delaunay triangles, auto for 200
 miaplpy.interferograms.networkType  = single_reference # network
 miaplpy.interferograms.networkType  = delaunay # network
 #############################################
 miaplpy.load.processor  = isce
 miaplpy.multiprocessing.numProcessor = 40
-miaplpy.inversion.rangeWindow        = 24   # range window size for searching SHPs, auto for 15
-miaplpy.inversion.azimuthWindow      = 7   # azimuth window size for searching SHPs, auto for 15
+miaplpy.inversion.rangeWindow        = 15   # range window size for searching SHPs, auto for 15
+miaplpy.inversion.azimuthWindow      = 15   # azimuth window size for searching SHPs, auto for 15
 miaplpy.timeseries.tempCohType       = full  # [full, average], auto for full.
 miaplpy.timeseries.minTempCoh        = 0.70     # auto for 0.5
+mintpy.networkInversion.minTempCoh   = 0.5
 #############################################
 insarmaps_flag                       = False

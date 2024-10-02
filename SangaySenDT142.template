@@ -3,7 +3,7 @@ cleanopt                          = 0   # [ 0 / 1 / 2 / 3 / 4]   0,1: none 2: ke
 processor                         = isce
 ssaraopt.platform                 = SENTINEL-1A,SENTINEL-1B
 ssaraopt.relativeOrbit            = 142
-ssaraopt.startDate                = 20160101
+ssaraopt.startDate                = 20141001
 #ssaraopt.endDate                  = 20240330
 hazard_products_flag              = False
 insarmaps_flag                     = True
@@ -40,7 +40,7 @@ mintpy.geocode.laloStep              = 0.0002,0.0002
 mintpy.reference.minCoherence        = 0.5   #[0.0-1.0], auto for 0.85, minimum coherence for auto method
 miaplpy.interferograms.delaunayTempThresh = 90     # [days] temporal threshold for delaunay triangles, auto for 60
 miaplpy.interferograms.networkType  = single_reference # network
-miaplpy.interferograms.networkType  = delaunay # network
+#miaplpy.interferograms.networkType  = delaunay # network
 #############################################
 miaplpy.load.processor  = isce
 miaplpy.multiprocessing.numProcessor = 40
