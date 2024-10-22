@@ -1,18 +1,19 @@
+
 ######################################################
 cleanopt                          = 0   # [ 0 / 1 / 2 / 3 / 4]   0,1: none 2: keep merged,geom_master,SLC 3: keep MINTPY 4: everything
 processor                         = isce
 ssaraopt.platform                 = SENTINEL-1A,SENTINEL-1B
-ssaraopt.relativeOrbit            = 142
-ssaraopt.startDate                = 20140101
+ssaraopt.relativeOrbit            = 120
+ssaraopt.startDate                = 20150101
 #ssaraopt.endDate                  = 20211130
 hazard_products_flag              = False
 insarmaps_flag                     = True
 ######################################################
-topsStack.boundingBox             = 0.68 0.89 -80.41 -75.41    # -1 0.15 -91.6 -90.9
-topsStack.subswath                = 2 3 # '1 2'
+#topsStack.boundingBox             = 0.65 0.89 -80.41 -75.41    # -1 0.15 -91.6 -90.9
+topsStack.subswath                = 1 2 # '1 2'
 topsStack.numConnections          = 4    # comment
-topsStack.azimuthLooks            = 6    # comment
-topsStack.rangeLooks              = 24   # comment
+topsStack.azimuthLooks            = 4    # comment
+topsStack.rangeLooks              = 16   # comment
 topsStack.filtStrength            = 0.2  # comment
 topsStack.unwMethod               = snaphu  # comment
 topsStack.coregistration          = auto  # [NESD geometry], auto for NESD
@@ -20,11 +21,16 @@ topsStack.coregistration          = auto  # [NESD geometry], auto for NESD
 
 ######################################################
 mintpy.load.autoPath              = yes
-mintpy.subset.lalo                  = 0.68:0.89,-78.02:-77.8
+mintpy.subset.lalo                = 0.65:0.89,-78.07:-77.76
 mintpy.compute.cluster            = local #[local / slurm / pbs / lsf / none], auto for none, cluster type
 mintpy.compute.numWorker          = 30 #[int > 1 / all], auto for 4 (local) or 40 (non-local), num of workers
-#mintpy.reference.lalo             = 0.68,-78.02     # S of SN
+#mintpy.reference.lalo             = 0.65,-78.07     # S of SN
 mintpy.networkInversion.parallel  = yes  #[yes / no], auto for no, parallel processing using dask
+mintpy.network.tempBaseMax     = auto  #[1-inf, no], auto for no, max temporal baseline in days
+mintpy.network.perpBaseMax     = auto  #[1-inf, no], auto for no, max perpendicular spatial baseline in meter
+mintpy.network.connNumMax      = auto  #[1-inf, no], auto for no, max number of neighbors for each acquisition
+mintpy.network.coherenceBased  = auto  #[yes / no], auto for no, exclude interferograms with coherence < minCoherence
+mintpy.network.aoiLALO         = auto  #[S:N,W:E / no], auto for no - use the whole area
 mintpy.troposphericDelay.method   = auto   # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 mintpy.save.hdfEos5               = yes   #[yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 mintpy.save.hdfEos5.update        = yes   #[yes / no], auto for no, put XXXXXXXX as endDate in output filename
@@ -32,7 +38,7 @@ mintpy.save.hdfEos5.subset        = auto     #[yes / no], auto for no, put subse
 mintpy.save.kmz                   = yes  #[yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
 ####################
 minsar.miaplpyDir.addition           = date          #[name / lalo / no ]  auto for no (miaply_$name_startDate_endDate)) 
-miaplpy.subset.lalo                  = 0.68:0.89,-78.02:-77.8    #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                  = 0.65:0.89,-78.02:-77.81     #[S:N,W:E / no], auto for no
 miaplpy.load.startDate               = auto #  20200101
 miaplpy.load.endDate                 = auto
 mintpy.geocode.laloStep              = 0.0002,0.0002
@@ -54,3 +60,4 @@ mintpy.networkInversion.minTempCoh         = 0.5
 minsar.upload_flag              = True    # [True / False ], upload to jetstream (Default: False)
 minsar.insarmaps_flag           = False    # [True / False ], ingest into insarmaps (Default: False)
 minsar.insarmaps_dataset        = DS       # [PS,DS,PSDS,geo,all], miaplpy dataset to ingest (Default: geo) (MintPy is always geo)
+
