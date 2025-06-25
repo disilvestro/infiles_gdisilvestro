@@ -1,16 +1,16 @@
 ######################################################
 cleanopt                          = 0   # [ 0 / 1 / 2 / 3 / 4]   0,1: none 2: keep merged,geom_master,SLC 3: keep MINTPY 4: everything
 processor                         = isce
-ssaraopt.platform                 = Sen  # [Sentinel-1 / ALOS2 / RADARSAT2 / TerraSAR-X / COSMO-Skymed]
-ssaraopt.relativeOrbit            = 18
-ssaraopt.startDate                = 20160701  # YYYYMMDD
-ssaraopt.endDate                  = 2025-06-24 16:04:49.672904    # YYYYMMDD
+ssaraopt.platform                 = SENTINEL-1  # [Sentinel-1 / ALOS2 / RADARSAT2 / TerraSAR-X / COSMO-Skymed]
+ssaraopt.relativeOrbit            = 163
+ssaraopt.startDate                = 20190101    # YYYYMMDD
+ssaraopt.endDate                  = 20250506    # YYYYMMDD
 hazard_products_flag              = False
 #insarmaps_flag                     = True
 ######################################################
-#topsStack.boundingBox             = -2.04 -1.98 -80.84 -75.84    # -1 0.15 -91.6 -90.9
+#topsStack.boundingBox             = 32.7167 32.8048 132.65 127.95    # -1 0.15 -91.6 -90.9
 #topsStack.excludeDates            =  20240926
-topsStack.subswath                = 3 # '1 2'
+topsStack.subswath                = 2 3 # '1 2'
 topsStack.numConnections          = 4    # comment
 topsStack.azimuthLooks            = 3    # comment
 topsStack.rangeLooks              = 15   # comment
@@ -21,10 +21,10 @@ topsStack.coregistration          = auto  # [NESD geometry], auto for NESD
 
 ######################################################
 mintpy.load.autoPath              = yes
-mintpy.subset.lalo                = -2.04:-1.98,-78.39:-78.3
+mintpy.subset.lalo                = 32.7167:32.8048,130.2242:130.3728
 mintpy.compute.cluster            = local #[local / slurm / pbs / lsf / none], auto for none, cluster type
 mintpy.compute.numWorker          = 30 #[int > 1 / all], auto for 4 (local) or 40 (non-local), num of workers
-#mintpy.reference.lalo             = -2.04,-78.39     # S of SN
+#mintpy.reference.lalo             = 32.7167,130.2242     # S of SN
 
 mintpy.networkInversion.parallel  = yes  #[yes / no], auto for no, parallel processing using dask
 mintpy.network.tempBaseMax        = auto  #[1-inf, no], auto for no, max temporal baseline in days
@@ -34,17 +34,17 @@ mintpy.network.coherenceBased     = auto  #[yes / no], auto for no, exclude inte
 mintpy.network.aoiLALO            = auto  #[S:N,W:E / no], auto for no - use the whole area
 mintpy.networkInversion.minTempCoh  = 0.6 #[0.0-1.0], auto for 0.7, min temporal coherence for mask
 
-mintpy.troposphericDelay.method   = auto   # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
+mintpy.troposphericDelay.method   = False   # pyaps  #[pyaps / height_correlation / base_trop_cor / no], auto for pyaps
 mintpy.save.hdfEos5               = yes   #[yes / update / no], auto for no, save timeseries to UNAVCO InSAR Archive format
 mintpy.save.hdfEos5.update        = yes   #[yes / no], auto for no, put XXXXXXXX as endDate in output filename
 mintpy.save.hdfEos5.subset        = yes   #[yes / no], auto for no, put subset range info in output filename
 mintpy.save.kmz                   = yes   #[yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
 ####################
 minsar.miaplpyDir.addition         = date  #[name / lalo / no] auto for no (miaply_$name_startDate_endDate))
-miaplpy.subset.lalo                = -2.04:-1.98,-78.39:-78.3  #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                = 32.7167:32.8048,130.2242:130.3728  #[S:N,W:E / no], auto for no
 miaplpy.load.startDate             = auto # 20200101
 miaplpy.load.endDate               = auto
-mintpy.geocode.laloStep            = 0.0002,0.0002
+mintpy.geocode.laloStep            = 0.0002,0.00024
 mintpy.reference.minCoherence      = 0.5      #[0.0-1.0], auto for 0.85, minimum coherence for auto method
 miaplpy.interferograms.delaunayBaselineRatio = 4
 miaplpy.interferograms.delaunayTempThresh    = 120     # [days] temporal threshold for delaunay triangles, auto for 120
