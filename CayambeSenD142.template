@@ -9,7 +9,7 @@ hazard_products_flag              = False
 #insarmaps_flag                     = True
 ######################################################
 #topsStack.boundingBox             = -0.07 0.12 -80.5 -75.5    # -1 0.15 -91.6 -90.9
-#topsStack.excludeDates            =  20240926
+topsStack.excludeDates            = 20241207
 topsStack.subswath                = 2 3 # '1 2'
 topsStack.numConnections          = 4    # comment
 topsStack.azimuthLooks            = 3    # comment
@@ -60,7 +60,7 @@ miaplpy.timeseries.tempCohType    = full     # [full, average], auto for full.
 miaplpy.timeseries.minTempCoh     = 0.50     # auto for 0.5
 mintpy.networkInversion.minTempCoh = 0.7
 #############################################
-minsar.upload_flag                = False    # [True / False ], upload to jetstream (Default: False)
-minsar.insarmaps_flag             = False
+minsar.upload_flag                = True    # [True / False ], upload to jetstream (Default: False)
+minsar.insarmaps_flag             = True
 minsar.insarmaps_dataset          = filt*DS
 #############################################

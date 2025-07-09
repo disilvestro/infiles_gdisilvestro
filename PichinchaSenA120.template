@@ -9,7 +9,7 @@ hazard_products_flag              = False
 #insarmaps_flag                     = True
 ######################################################
 #topsStack.boundingBox             = -0.22 -0.12 -81.08 -76.08    # -1 0.15 -91.6 -90.9
-#topsStack.excludeDates            =  20240926
+topsStack.excludeDates            =  20241207
 topsStack.subswath                = 1 # '1 2'
 topsStack.numConnections          = 4    # comment
 topsStack.azimuthLooks            = 3    # comment

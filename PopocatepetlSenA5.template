@@ -47,7 +47,7 @@ mintpy.geocode.laloStep                             = 0.0002,0.0002
 mintpy.reference.minCoherence               = 0.5      #[0.0-1.0], auto for 0.85, minimum coherence for auto method
 miaplpy.interferograms.delaunayBaselineRatio   = 4
 miaplpy.interferograms.delaunayTempThresh      = 120     # [days] temporal threshold for delaunay triangles, auto for 120
-miaplpy.interferograms.delaunayPerpThresh      = 200     # [meters] Perp baseline threshold for delaunay triangles, auto for 200
+miaplpy.interferograms.delaunayPerpThresh      = 300     # [meters] Perp baseline threshold for delaunay triangles, auto for 200
 miaplpy.interferograms.networkType  = single_reference # network
 miaplpy.interferograms.networkType  = delaunay # network
 #############################################
