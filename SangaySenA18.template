@@ -4,7 +4,7 @@ processor                         = isce
 ssaraopt.platform                 = SENTINEL-1A,SENTINEL-1B  # [Sentinel-1 / ALOS2 / RADARSAT2 / TerraSAR-X / COSMO-Skymed]
 ssaraopt.relativeOrbit            = 18
 ssaraopt.startDate                = 20160701  # YYYYMMDD
-ssaraopt.endDate                  = 20250626    # YYYYMMDD
+ssaraopt.endDate                  = 20250708    # YYYYMMDD
 hazard_products_flag              = False
 #insarmaps_flag                     = True
 ######################################################

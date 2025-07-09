@@ -2,15 +2,15 @@
 cleanopt                          = 0   # [ 0 / 1 / 2 / 3 / 4]   0,1: none 2: keep merged,geom_master,SLC 3: keep MINTPY 4: everything
 processor                         = isce
 ssaraopt.platform                 = SENTINEL-1A,SENTINEL-1B  # [Sentinel-1 / ALOS2 / RADARSAT2 / TerraSAR-X / COSMO-Skymed]
-ssaraopt.relativeOrbit            = 120
+ssaraopt.relativeOrbit            = 48
 ssaraopt.startDate                = 20160701  # YYYYMMDD
 ssaraopt.endDate                  = 20250708    # YYYYMMDD
 hazard_products_flag              = False
 #insarmaps_flag                     = True
 ######################################################
-#topsStack.boundingBox             = -0.73 -0.63 -80.93 -75.93    # -1 0.15 -91.6 -90.9
-topsStack.excludeDates            =  20241207
-topsStack.subswath                = 1 # '1 2'
+#topsStack.boundingBox             = 2.25 2.35 -78.88 -73.88    # -1 0.15 -91.6 -90.9
+#topsStack.excludeDates            =  20240926
+topsStack.subswath                = 1 2 # '1 2'
 topsStack.numConnections          = 4    # comment
 topsStack.azimuthLooks            = 3    # comment
 topsStack.rangeLooks              = 15   # comment
@@ -21,10 +21,10 @@ topsStack.coregistration          = auto  # [NESD geometry], auto for NESD
 
 ######################################################
 mintpy.load.autoPath              = yes
-mintpy.subset.lalo                = -0.73:-0.63,-78.49:-78.37
+mintpy.subset.lalo                = 2.25:2.35,-76.45:-76.32
 mintpy.compute.cluster            = local #[local / slurm / pbs / lsf / none], auto for none, cluster type
 mintpy.compute.numWorker          = 30 #[int > 1 / all], auto for 4 (local) or 40 (non-local), num of workers
-#mintpy.reference.lalo             = -0.73,-78.49     # S of SN
+#mintpy.reference.lalo             = 2.25,-76.45     # S of SN
 
 mintpy.networkInversion.parallel  = yes  #[yes / no], auto for no, parallel processing using dask
 mintpy.network.tempBaseMax        = auto  #[1-inf, no], auto for no, max temporal baseline in days
@@ -41,7 +41,7 @@ mintpy.save.hdfEos5.subset        = yes   #[yes / no], auto for no, put subset r
 mintpy.save.kmz                   = yes   #[yes / no], auto for yes, save geocoded velocity to Google Earth KMZ file
 ####################
 minsar.miaplpyDir.addition         = date  #[name / lalo / no] auto for no (miaply_$name_startDate_endDate))
-miaplpy.subset.lalo                = -0.73:-0.63,-78.49:-78.37  #[S:N,W:E / no], auto for no
+miaplpy.subset.lalo                = 2.25:2.35,-76.45:-76.32  #[S:N,W:E / no], auto for no
 miaplpy.load.startDate             = auto # 20200101
 miaplpy.load.endDate               = auto
 mintpy.geocode.laloStep            = 0.0002,0.0002
